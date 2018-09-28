@@ -8,12 +8,12 @@ b = tf.Variable(tf.random_uniform([1], -100, 100))
 X = tf.placeholder(tf.float32)
 Y = tf.placeholder(tf.float32)
 
-H = W * X + b
-cost = tf.reduce_mean(tf.square(H - Y))
+H = W * X + b #Hypothesis
+cost = tf.reduce_mean(tf.square(H - Y)) #Cost function
 
 a = tf.Variable(0.01)
 optimizer = tf.train.GradientDescentOptimizer(a)
-train = optimizer.minimize(cost)# cost 최소화
+train = optimizer.minimize(cost)# cost 최소화(gradent descent algorithm)
 # learning_rate = 0.1
 # gradient = tf.reduce_mean((W*X-Y)*X)
 # descent = W-learning_rate*gradient
