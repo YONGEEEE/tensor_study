@@ -25,9 +25,9 @@ sess = tf.Session()
 sess.run(init)
 
 for i in range(5001):
-    sess.run(train, feed_dict= {X: xData, Y : yData})
+    cost_val, hy_val, _ =sess.run([cost, H, train], feed_dict= {X: xData, Y : yData})
     if i % 500 == 0:
-        print (i, sess.run(cost, feed_dict={X : xData, Y : yData}), sess.run(W), sess.run(b))
+        print (i,'Cost:',cost_val,'prediction:',hy_val)
 print (sess.run(H, feed_dict={X : [8]}))
 
 
